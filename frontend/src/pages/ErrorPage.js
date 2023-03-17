@@ -6,9 +6,10 @@ const ErrorPage = () => {
   const error = useRouteError();
   let message = "Something went wrong!";
   let title = "An error has occured!";
-  console.log(error);
+  console.log(error.data);
   if (error.status === 500) {
-    message = JSON.parse(error.data).message;
+    // message = JSON.parse(error.data) ? JSON.parse(error.data).message : error.data.message;
+    message = JSON.parse(error.data).message
   }
   if (error.status === 404) {
     message = "Could not found the source of page!";
